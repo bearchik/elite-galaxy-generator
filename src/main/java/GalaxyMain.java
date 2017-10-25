@@ -5,10 +5,10 @@ import java.io.InputStreamReader;
 public class GalaxyMain {
     public static void main(String[] args) {
 
-        BufferedReader br = null;
+        BufferedReader br;
 
-        int galaxynumber = 0;
-        int planetnumber = 0;
+        int galaxynumber;
+        int planetnumber;
 
         try {
             br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,13 +29,13 @@ public class GalaxyMain {
 
     }
 
-    public static void printStar(Star star) {
+    private static void printStar(Star star) {
         System.out.flush();
 
         System.out.println(String.format("Name: %16s", star.getPlanetname()));
         System.out.println(String.format("Loc: %16s:%s", String.valueOf(star.getX()), String.valueOf(star.getY())));
         System.out.println(String.format("Radius: %16s km", String.valueOf(star.getRadius())));
-        System.out.println(String.format("Government: %16s km", star.getGovname()));
+        System.out.println(String.format("Government: %16s", star.getGovname()));
         System.out.println(String.format("Economy: %16s", star.getEconame()));
         System.out.println(String.format("Inhabitants: %16s", star.getInhabitants()));
         System.out.println(String.format("Tech Level: %16s", String.valueOf(star.getTechlvl())));
@@ -44,7 +44,7 @@ public class GalaxyMain {
 
     }
 
-    public static Star generateGalaxy(int galaxynumber, int planetnumber) {
+    private static Star generateGalaxy(int galaxynumber, int planetnumber) {
         short[] seed = { 0x5A4A, 0x0248, (short)(0xB753) };
         Star star = new Star();
 
@@ -65,7 +65,7 @@ public class GalaxyMain {
         return star;
     }
 
-    public static short[] createGalaxySeed(short[] initseed, int roll) {
+    private static short[] createGalaxySeed(short[] initseed, int roll) {
         short[] newseed = new short[3];
 
         if(roll == 0) {

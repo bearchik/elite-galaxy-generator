@@ -189,7 +189,7 @@ public class Star {
         return tl;
     }
 
-    public String createInhabitants(short[] seed) {
+    private String createInhabitants(short[] seed) {
         String inhabitants = "Human Colonists";
         int[] inhabarray = new int[4];
         if ((seed[2] >>> 7 & 1) != 0) {
@@ -215,7 +215,6 @@ public class Star {
             return createInhabString(inhabarray);
 
         }
-
         return inhabitants;
     }
 
